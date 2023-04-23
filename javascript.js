@@ -1,48 +1,80 @@
 const gameBoard = (function () {
 
     let gameGrid = document.getElementById('gameGrid');
-    const board = ['X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O' ];
-    function createBoard() {
-        gameGrid.classList.add('#gameGrid')
-        for(let i = 0; i < 9; i++){
-                let gridCell = document.createElement('button');
-                gridCell.className = 'gridCell';
-                gridCell.textContent = board[i];
-                gridCell.value = i;
-                gameGrid.appendChild(gridCell);
-                gridCell.addEventListener('click', markCell);
-        }
-    }
-    function markCell() {
-        console.log('Cell ' + this.value + ' has been clicked');
-    }
+    let board = ['1', '1', '1', '4', '5', '6', '7', '8', '9' ];
+    const cells = Array.from(document.querySelectorAll('.gridCell'));
+    let winner = null;
+
+    const refreshBoard = function() {
+        board.forEach(function (mark, idx) {
+            cells[idx].textContent = board[idx];
+        });
+    };
+
+
     function boardObject() {
-        console.log(board);
+        let boardDisplay = board;
+        console.log(boardDisplay)
+        return boardDisplay;
+    }
+
+    const winCondition = function() {
+        for(let i = 0; i < 9; i++){ 
+                if(board.includes('') != true){
+                    winner = 'Tie'
+                }
+                if(board[0] === board[1] && board[1] === board[2] && board[i][0] != ''){
+                    winner = 'currentPlayer';
+                }
+                if(board[3] === board[4] && board[4] === board[5] && board[3] != ''){
+                    winner = 'currentPlayer';
+                }
+                if(board[6] === board[7] && board[7] === board[8] && board[6] != ''){
+                    winner = 'currentPlayer';
+                }
+                if(board[0] === board[3] && board[3] === board[6] && board[0] != ''){
+                    winner = 'currentPlayer';
+                }
+                if(board[1] === board[4] && board[4] === board[7] && board[1] != ''){
+                    winner = 'currentPlayer';
+                }
+                if(board[2] === board[5] && board[5] === board[8] && board[2] != ''){
+                    winner = 'currentPlayer';
+                }
+                if(board[0] === board[4] && board[4] === board[8] && board[0] != ''){
+                    winner = 'currentPlayer';
+                }
+                if(board[2] === board[4] && board[4] === board[6] && board[2] != ''){
+                    winner = 'currentPlayer';
+                }
+        }
+        return winner;
     }
 
 
 
 
-
-    return {boardObject, createBoard};
+    return {boardObject, refreshBoard, gameGrid, winCondition};
 })();
-gameBoard.createBoard()
 gameBoard.boardObject()
-
-const displayController = (function (playerOneName = "Player One", playerTwoName = "Player Two") {
+gameBoard.refreshBoard()
+gameBoard.winCondition()
+const displayController = (function (playerOne = "Player One", playerTwo= "Player Two") {
 
     const players = [
         { 
-            name: playerOneName,
-            marker: 'X'
+            name: playerOne,
+            markerOne: 'X'
         },
         { 
-            name: playerOneName,
-            marker: 'O'
+            name: playerTwo,
+            markerTwo: 'O'
         }
     ]
     let activePlayer = players[0];
 
+
+    
     const switchPlayerTurn = function() {
         if(activePlayer === players[0]){
             activePlayer = players[1]
