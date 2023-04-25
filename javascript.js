@@ -128,6 +128,7 @@ const displayController = (function (playerOne = "Player One", playerTwo= "Playe
             gameBoard.board[index] = '';
         });
         activePlayer = 'none';
+        restartButton.classList.add('hidden');
         gameBoard.refreshBoard(); 
         switchPlayerTurn();
         startRound();
@@ -139,9 +140,11 @@ const displayController = (function (playerOne = "Player One", playerTwo= "Playe
         cell.forEach((cell) => {
             cell.classList.remove('active');
         });
+        restartButton.classList.remove('hidden');
     }
 
     const playRound = function () {
+        startButton.classList.add('hidden');
         startRound();
     }
 

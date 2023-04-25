@@ -24,3 +24,6 @@
 .active{
     background-color: red;
 }
+.hidden{
+    display: none;
+}
