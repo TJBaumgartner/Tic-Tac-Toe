@@ -92,11 +92,13 @@ const displayController = (function (playerOne = "Player One", playerTwo= "Playe
                     gameBoard.refreshBoard();
                     if(gameBoard.winCondition() == 'currentPlayer'){
                         winnerDisplay.textContent = activePlayer.name + ' Wins!';
+                        restartButton.classList.remove('hidden');
                         resetActive();
                         return;
                     }
                     if(gameBoard.winCondition() == 'Tie'){
                         winnerDisplay.textContent = 'Tie Game!';
+                        restartButton.classList.remove('hidden');
                         resetActive();
                         return;
                     }
@@ -109,11 +111,13 @@ const displayController = (function (playerOne = "Player One", playerTwo= "Playe
                     gameBoard.refreshBoard();
                     if(gameBoard.winCondition() == 'currentPlayer'){
                         winnerDisplay.textContent = activePlayer.name + ' Wins!';
+                        restartButton.classList.remove('hidden');
                         resetActive();
                         return;
                     }
                     if(gameBoard.winCondition() == 'Tie'){
                         winnerDisplay.textContent = 'Tie Game!';
+                        restartButton.classList.remove('hidden');
                         resetActive();
                         return;
                     }
@@ -128,6 +132,7 @@ const displayController = (function (playerOne = "Player One", playerTwo= "Playe
             gameBoard.board[index] = '';
         });
         activePlayer = 'none';
+        winnerDisplay.textContent = '';
         restartButton.classList.add('hidden');
         gameBoard.refreshBoard(); 
         switchPlayerTurn();
@@ -145,6 +150,7 @@ const displayController = (function (playerOne = "Player One", playerTwo= "Playe
 
     const playRound = function () {
         startButton.classList.add('hidden');
+        gameBoardContainer.classList.remove('hidden');
         startRound();
     }
 
@@ -165,6 +171,7 @@ const displayController = (function (playerOne = "Player One", playerTwo= "Playe
     }
     return {playRound, restartGame}
 })();
+const gameBoardContainer = document.getElementById('gameBoardContainer');
 const startButton = document.getElementById('startButton');
 startButton.addEventListener('click', displayController.playRound);
 const restartButton = document.getElementById('restartButton');

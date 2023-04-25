@@ -9,29 +9,29 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-    <div id="players">
-        <div id="player1">
-            <h1>Player 1 (X)</h1>
+    <div id="container">
+        <div id="header">Tic-Tac-Toe</div>
+        <div id="players">
+                <h1>Player 1 (X)</h1>
+                <h1>Player 2 (O)</h1>
         </div>
-        <div id="player2">
-            <h1>Player 2 (O)</h1>
+        <div id="displayContainer"><h1 id="displayWinner"></h1></div>
+        <div id="buttonContainer"><button id="startButton">Start Game</button><button id="restartButton"  class="hidden">Play Again?</button></div>
+        <div id="gameBoardContainer" class="hidden">
+            <div id="gameGrid">
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+                <div class="gridCell"></div>
+            </div>
         </div>
     </div>
-    <div id="displayContainer"><h1 id="displayWinner"></h1></div>
-    <div id="buttonContainer"><button id="startButton">Start Game</button><button id="restartButton">Play Again?</button></div>
-    <div id="gameBoardContainer">
-        <div id="gameGrid">
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-            <div class="gridCell"></div>
-        </div>
-    </div>
+
 
 
 

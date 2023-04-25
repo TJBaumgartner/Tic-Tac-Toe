@@ -6,24 +6,66 @@
     list-style: none;
     text-decoration: none;
 }
+body{
+    background-color: gray;
+}
+#container{
+    text-align: center;
+}
+#header{
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 100px;
+}
+#players{
+    width: 60%;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+#gameBoardContainer{
+    width: 60%;
+    margin: auto;
+}
 #gameGrid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 5px;
-    position: absolute;
-    top: 30%;
-    left: 30%;
+    width: 310px;
+    height: 310px;
+    margin: auto; 
+    margin-top: 50px;
 }
 .gridCell{
     background-color: black;
     color: white;
     height: 100px;
     width: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 4rem;
+    font-weight: 700;
 }
-.active{
-    background-color: red;
+#displayContainer{
+    margin-top: 50px;
+}
+#displayWinner{
+    color:white;
+    font-size: 2.5rem;
+}
+#buttonContainer{
+    margin-top: 50px;
 }
 .hidden{
     display: none;
+}
+button{
+    border-radius: 10px;
+    padding: 10px 30px 10px 30px;
+    color: white;
+    background-color: brown;
+    font-size: 2.5rem;
 }
