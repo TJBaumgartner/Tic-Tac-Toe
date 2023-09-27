@@ -176,3 +176,6 @@ const startButton = document.getElementById('startButton');
 startButton.addEventListener('click', displayController.playRound);
 const restartButton = document.getElementById('restartButton');
 restartButton.addEventListener('click', displayController.restartGame);
+
+
+document.body.appendChild(createContent());
